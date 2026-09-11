@@ -1,0 +1,81 @@
+name: 功能请求
+description: 提议能够验证并验收的能力改进
+title: "feature: "
+labels:
+  - needs-triage
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 待解决的问题
+      description: 描述当前场景、受影响的使用者和现有行为。
+      placeholder: 当……时，使用者无法……
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 期望行为
+      description: 描述完成后的用户行为，不要求先确定实现方式。
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected_area
+    attributes:
+      label: 主要范围
+      options:
+        - Pi 运行时与智能体循环
+        - 模型调用与 Token 统计
+        - Python 宿主桥接
+        - 工具审批与执行
+        - 审计与安全边界
+        - Sentinel 监控
+        - 终端用户界面
+        - 文档与开发流程
+        - 新模块
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 验收标准
+      description: 列出可测试、可观察的完成条件。
+      placeholder: |
+        - [ ] 给定……，当……时，应……
+        - [ ] 失败时应……
+    validations:
+      required: true
+
+  - type: input
+    id: plan_reference
+    attributes:
+      label: 实施方案或评测用例
+      description: 若有关联，请填写阶段、用例编号或文档路径。
+      placeholder: 例如 Phase 1、E03
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 已考虑的方案
+      description: 列出现有绕行方式或备选设计，以及它们的限制。
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: 风险与兼容性
+      description: 说明对工具权限、数据、Token 成本、现有 ChatDome 行为或部署方式的影响；没有则填写无。
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 提交检查
+      options:
+        - label: 我已搜索现有 Issue，未发现相同请求。
+          required: true
+        - label: 我已提供可验证的验收标准。
+          required: true

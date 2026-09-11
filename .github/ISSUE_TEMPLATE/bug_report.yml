@@ -1,0 +1,110 @@
+name: 缺陷报告
+description: 报告可复现的 ChatDomePro 缺陷
+title: "bug: "
+labels:
+  - needs-triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提交前请移除密钥、访问令牌、个人数据和未脱敏的日志。
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: 问题概述
+      description: 说明发生了什么，以及它对使用者造成的影响。
+      placeholder: 执行……时，系统……
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤
+      description: 提供能够稳定触发问题的最小步骤。
+      placeholder: |
+        1. 使用配置……
+        2. 输入……
+        3. 执行……
+        4. 观察到……
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期结果
+      description: 说明正确行为和可判断修复完成的结果。
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected_area
+    attributes:
+      label: 影响范围
+      options:
+        - Pi 运行时与智能体循环
+        - 模型调用与 Token 统计
+        - Python 宿主桥接
+        - 工具审批与执行
+        - 审计与安全边界
+        - Sentinel 监控
+        - 终端用户界面
+        - 文档与开发流程
+        - 尚不确定
+    validations:
+      required: true
+
+  - type: input
+    id: chatdomepro_version
+    attributes:
+      label: ChatDomePro 版本
+      description: 填写提交哈希、分支名或发布版本。
+      placeholder: 例如 abc1234
+    validations:
+      required: true
+
+  - type: input
+    id: pi_version
+    attributes:
+      label: Pi 版本
+      description: 若问题涉及 Pi，请填写包版本或提交哈希；否则填写不适用。
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 运行环境
+      description: 填写操作系统、Node.js、Python、模型供应商、模型名称、推理强度和已启用工具。
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 日志与证据
+      description: 粘贴已脱敏的错误日志、调用轨迹或截图链接。
+      render: shell
+
+  - type: textarea
+    id: security_impact
+    attributes:
+      label: 安全与数据影响
+      description: 若涉及越权执行、密钥、个人数据或审计缺失，请说明影响；否则填写无。
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 提交检查
+      options:
+        - label: 我已搜索现有 Issue，未发现相同问题。
+          required: true
+        - label: 我已移除密钥、访问令牌和个人数据。
+          required: true
+        - label: 我已提供可复现步骤，或说明无法稳定复现的原因。
+          required: true
