@@ -1,17 +1,25 @@
 # ChatDomePro
 
-基于 Pi 的智能体验证项目，逐步接入 ChatDome 的命令审批、受控执行、审计和主动巡检能力。
+ChatDomePro 是基于 Pi 构建的通用计算机智能体，特别强化 Linux 主机运维。它与 ChatDome 长期并行：ChatDome 保持轻量、保守，ChatDomePro 负责开放任务、多步调查、连续执行和受控主机变更。
 
-当前状态：实施方案已编写，应用代码、依赖安装和模型对照测试尚未开始。
+当前状态：愿景、边界和首版实施基线已确认；应用代码尚未开始。
 
-## 实施入口
+## 文档阅读顺序
 
-- [Pi 验证与特色能力接入实施方案](docs/04-implementation-plans/chatdomepro-pi-validation-plan-zh.md)
-- [Pi 官方仓库](https://github.com/earendil-works/pi)
-- [ChatDome 原项目](https://github.com/ChatDome/ChatDome)
+1. [领域词汇](CONTEXT.md)
+2. [产品愿景与范围](docs/01-product/vision-and-scope-zh.md)
+3. [确认决策基线](docs/01-product/decision-baseline-zh.md)
+4. [Pi 集成与系统架构](docs/02-architecture/system-architecture-zh.md)
+5. [安全与执行规范](docs/03-specifications/security-and-execution-zh.md)
+6. [长期记忆与审计规范](docs/03-specifications/memory-and-audit-zh.md)
+7. [原始 Pi 对照验证](docs/05-validation/pi-vs-chatdomepro-validation-zh.md)
+8. [首版实施计划](docs/04-implementation-plans/chatdomepro-v1-implementation-plan-zh.md)
+9. [架构决策记录](docs/adr/)
 
-首个里程碑是固定模型与软件版本、建立用量记录、复现一项 ChatDome 失败案例。先验证原版 Pi，再逐项接入特色能力。
+## 核心边界
 
-ChatDomePro 使用独立配置、会话和测试环境。现有 ChatDome 保留为产品及对照基线，不共享运行数据，也不在此阶段切换现有部署。
-
-开发目录：`D:\University\github\ChatDomePro`。
+- Pi 负责模型、循环、会话、压缩、终端、扩展和技能。
+- ChatDomePro 负责 Podman 沙箱、风险、审批、根用户执行器、长期记忆和审计。
+- 模型工具在任务容器运行；用户直接输入的 Pi shell 以普通 Linux 用户在控制节点运行。
+- Telegram 等远程渠道由独立 Pi 插件提供。
+- 首版单实例、单控制节点、单活动任务，不优化远程多主机。
