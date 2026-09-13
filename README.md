@@ -2,7 +2,7 @@
 
 ChatDomePro 是基于 Pi 构建的通用计算机智能体，特别强化 Linux 主机运维。它与 ChatDome 长期并行：ChatDome 保持轻量、保守，ChatDomePro 负责开放任务、多步调查、连续执行和受控主机变更。
 
-当前状态：愿景、边界和首版实施基线已确认；应用代码尚未开始。
+当前状态：愿景、边界和首版实施基线已确认；首版 Pi 锁定为 `@earendil-works/pi-coding-agent@0.85.1`，见[版本调研与锁定结论](docs/06-research/pi-v1-version-research-zh.md)。应用代码尚未开始。
 
 ## 文档阅读顺序
 
@@ -15,6 +15,7 @@ ChatDomePro 是基于 Pi 构建的通用计算机智能体，特别强化 Linux 
 7. [原始 Pi 对照验证](docs/05-validation/pi-vs-chatdomepro-validation-zh.md)
 8. [首版实施计划](docs/04-implementation-plans/chatdomepro-v1-implementation-plan-zh.md)
 9. [架构决策记录](docs/adr/)
+10. [Pi 首版版本调研与锁定结论](docs/06-research/pi-v1-version-research-zh.md)
 
 ## 核心边界
 

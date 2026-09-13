@@ -3,18 +3,20 @@ doc-id: chatdomepro-v1-implementation-plan
 authority: 有效-work
 status: accepted
 language: zh-CN
-last-updated: 2026-09-12
+last-updated: 2026-09-13
 ---
 
 # 首版实施计划
 
-当前仅完成愿景和规范；代码、依赖锁、SQLite、Go 模块、systemd 和安装包尚未创建，Pi 版本尚未锁定。ChatDome 保持独立。Issue #1 应缩小为 Podman 工具路由。
+当前已完成愿景、规范和 [Pi 版本调研与锁定](../06-research/pi-v1-version-research-zh.md)；首版使用 `@earendil-works/pi-coding-agent@0.85.1`。应用代码、项目依赖锁文件、SQLite、Go 模块、systemd 和安装包尚未创建。ChatDome 保持独立。Issue #1 已限定为 Podman 工具路由。
 
 原则：每项能力先检查 Pi；已提供则复用。安全靠身份、权限、Podman 和 根用户执行器。首版不引入 Telegram、多用户、远程多主机或 Sentinel。
 
 ## M0 依赖和协议
 
-选择已发布 Pi 并核对 Node.js、类型和许可；创建 TypeScript 锁文件和纯 Go 模块；定义两段协议、持久编号、目录、用户、套接字和服务；关闭 Pi 遥测与版本检查；建立原始 Pi 入口。
+已完成：固定 Pi `0.85.1`，核对 Node.js 要求、公开接口、许可证、安全公告和升级约束，校验官方发布包摘要并查询其锁定依赖的已知漏洞。具体依据与验证范围见版本调研。
+
+待实施：按调研结论创建 TypeScript 锁文件和纯 Go 模块；定义两段协议、持久编号、目录、用户、套接字和服务；关闭 Pi 遥测与版本检查；建立原始 Pi 入口。依赖安装、类型编译和 Linux 运行验证仍未完成。
 
 验收：完整版本可查，干净 Linux 可安装，类型和 Go 测试可运行，无 ChatDome Python 依赖，Pi 不自动升级。
 
